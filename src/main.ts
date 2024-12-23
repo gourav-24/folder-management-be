@@ -4,10 +4,10 @@ import { ValidationPipe } from '@nestjs/common';
 
 
 
-import { Callback } from 'vercel';
+//import { Callback } from 'vercel';
 import serverlessExpress from '@vendia/serverless-express';
 
-let server: Callback;
+let server;
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -21,7 +21,7 @@ async function bootstrap() {
 
 bootstrap();
 
-export const handler: Callback = (event, context) => {
+export const handler = (event, context) => {
   if (!server) {
     bootstrap().then(() => server(event, context));
   } else {
