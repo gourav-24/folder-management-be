@@ -14,7 +14,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors(); // Enable CORS if required
   await app.init();
-
+  console.log('SERVER getting started>>>>>>>>>>>>>>>');
   const expressApp = app.getHttpAdapter().getInstance();
   server = serverlessExpress({ app: expressApp });
 }
